@@ -1,19 +1,22 @@
 import pymysql
 
+#连接MySQL 的 '网工2班' 数据库
 Connection=pymysql.connect(
     host='localhost',
     user='root',
     password='123456',
-    db='db_liul',
+    db='网工2班',
     charset='utf8',
     cursorclass = pymysql.cursors.DictCursor
 )
 
-sql='select * from books_229980501 order by id'
+#查找数据
+sql='select * from student order by s_id;'
 with Connection. cursor() as cursor:
     cursor.execute(sql)   #执行SQL语句
     data = cursor . fetchall() #获取全部数据
 #遍历图书数据
-for books in data:
-    print(f'id:{books['id']},图书: {books["name" ]}，价格: {books["price"]}')
+for student in data:
+    print(f'姓名:{student['s_name']},学号: {student["s_id" ]}，班级: {student["s_class"]},性别: {student["s_sex"]},电话:{student["s_phone"]}')
+
 cursor.close()
