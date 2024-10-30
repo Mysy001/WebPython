@@ -6,11 +6,13 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 #基本配置
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=Flask #设置为 True，Flask-SQLAlchemy 将会追踪对象的修改并且发送信号
-app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True #自动提交数据库会话中的改动
 app.config['SQLALCHEMY_DATABASE_URI']=(
     'mysql+pymysql://root:123456@localhost:3306/flask_demo'
     )
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True #自动提交数据库会话中的改动
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=Flask #设置为 True，Flask-SQLAlchemy 将会追踪对象的修改并且发送信号
+
+
 
 db = SQLAlchemy(app) #实例化SQLAlchemy
 
