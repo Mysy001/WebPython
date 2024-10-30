@@ -1,12 +1,9 @@
-import pymysql
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate,migrateCommand
-from flask_script import Manager
-
+import pymysql
+from flask_migrate import Migrate
 
 app = Flask(__name__)
-manager = Manager(app)
 
 #基本配置
 app.config['SQLALCHEMY_DATABASE_URI']=(
@@ -16,6 +13,7 @@ app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True #自动提交数据库会话�
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=Flask #设置为 True，Flask-SQLAlchemy 将会追踪对象的修改并且发送信号
 
 db = SQLAlchemy(app) #实例化SQLAlchemy
+migrate = Migrate(app,db)
 
 #创建数据库表
 class User(db.Model):
@@ -36,9 +34,6 @@ class Article(db.Model):
     def __repr__(self) -> str:
         return '<Article %r>' % self.username     
     
-def add(ob):
-    db.session.add(ob)
-    db.session.commit()
     
 if __name__ == '__main__':
     with app.app_context():        

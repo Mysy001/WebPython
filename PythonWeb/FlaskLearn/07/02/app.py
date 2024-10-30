@@ -15,4 +15,4 @@ class Hello(Command):
 manager.add_command("hello",Hello())
 
 if __name__ == "__main__":
-    manager.run({'hello':Hello()})
+    manager.run({'Hello':Hello()})

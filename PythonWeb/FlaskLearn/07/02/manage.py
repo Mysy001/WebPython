@@ -7,15 +7,16 @@ from flask_script import Manager,Shell
 app = Flask(__name__)
 
 #基本配置
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=Flask #设置为 True，Flask-SQLAlchemy 将会追踪对象的修改并且发送信号
-app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True #自动提交数据库会话中的改动
 app.config['SQLALCHEMY_DATABASE_URI']=(
     'mysql+pymysql://root:123456@localhost:3306/flask_demo'
     )
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True #自动提交数据库会话中的改动
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=Flask #设置为 True，Flask-SQLAlchemy 将会追踪对象的修改并且发送信号
+
 db = SQLAlchemy(app) #实例化SQLAlchemy
-migrate = Migrate(app,db)#创建 Migrate 实例
-manager = Manager(app)#实例化 Manager 类
-manager.add_command("db",MigrateCommand)#新增 db 命令
+migrate = Migrate(app,db)
+manager = Manager(app)
+manager.add_command("db",MigrateCommand)
 
 #创建数据库表
 class User(db.Model):
@@ -36,6 +37,6 @@ class Article(db.Model):
     def __repr__(self) -> str:
         return '<Article %r>' % self.username     
     
+    
 if __name__ == '__main__':
-    with app.app_context():        
-        db.create_all()
+    manager.run()
