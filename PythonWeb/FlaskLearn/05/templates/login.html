@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>欢迎来到重庆工程学院</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="https://unpkg.com/@popperis/coreo2/dist/umd/popper.is"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">首页</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://www.cqie.edu.cn/">官网</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">重工图书馆</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            重庆工程学院
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">计算机与物联网学院</a></li>
+                            <li><a class="dropdown-item" href="#">软件与人工智能学院</a></li>
+                            <li><a class="dropdown-item" href="#">电子信息学院</a></li>
+                            <li><a class="dropdown-item" href="#">建筑工程学院</a></li>
+                            <li><a class="dropdown-item" href="#">数字艺术学院</a></li>
+                            <li><a class="dropdown-item" href="#">管理学院</a></li>
+                            <li><a class="dropdown-item" href="#">通识学院</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <form action="" method="post">
+            <div class="form-group">
+            {{ form.name.label }}
+            {{ form.name(class="form-control")}}
+            {% for err in form.name.errors %}
+                <p style="color: red">{{ err }}</p>
+            {% endfor %}
+            </div>
+            <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password(class="form-control") }}
+            {% for err in form.password.errors %}
+               <p style="color: red">{{ err }}</p>
+            {% endfor %}
+            </div>
+            {{ form.csrf_token }}
+            {{ form.submit(class="btn btn-primary") }}
+        </form>
+      </div>
+
+
+</body>
+
+</html>

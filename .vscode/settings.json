@@ -1,0 +1,11 @@
+{
+    "cSpell.words": [
+        "mrsoft",
+        "pymysql",
+        "sqlalchemy",
+        "wtforms"
+    ],
+    "python.analysis.extraPaths": [
+        "./PythonWeb/FlaskLearn/06/app"
+    ]
+}

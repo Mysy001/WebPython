@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for...in语句</title>
+</head>
+<body>
+<script>
+    // 学生成绩信息
+    var person={name:"andy",age:18,score:{chinese:100,english:90}};
+    var txt = ''
+    for (x in person)  // x 为属性名
+    {
+        if (x == 'score') {  // 分数内容是对象，需要再次遍历
+            for (y in person['score']){
+                txt = y+':'+ person['score'][y] + '<br>';
+                document.write(txt);
+            }
+        }else{    // 其他信息直接输出
+            txt = x+':'+ person[x] + '<br>';
+            document.write(txt);
+        }
+    }
+</script>
+</body>
+</html>
