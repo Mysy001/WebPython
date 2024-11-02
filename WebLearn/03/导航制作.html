@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            a{
+                text-decoration: none;
+            }
+            ul,ol,li{
+                list-style: none;
+            }
+            .clearfix::after{
+                content: " ";
+                clear: both;
+                visibility: hidden;
+                height: 0;
+                display: block;
+            }
+            .clear{
+                clear: both;
+            }
+            nav{
+                height: 36px;
+                width: 100%;
+                background-color: #c9c9a7;
+            }
+            nav ul{
+                width: 1000px;
+                margin: 0 auto;
+            }
+            nav ul li{
+                width: 124px;
+                border-right: 1px #fff solid;
+                float: left;
+                background-color: #c9c9a7;
+                line-height: 36px;
+                text-align: center;
+                position: relative;
+                height: 36px;
+            }
+            nav ul li a{
+                height: 36px;
+                color: #000;
+                font-size: 14px;
+                display: block;
+            }
+            nav ul li a:hover{
+                background-color: #b3ab79;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul class="clearfix"> 
+                <li><a href="#">电子书刊</a></li>
+                <li><a href="#">音像</a></li>
+                <li><a href="#">英文原版</a></li>
+                <li><a href="#">文艺</a></li>
+                <li><a href="#">少儿</a></li>
+                <li><a href="#">人文社科</a></li>
+                <li><a href="#">经管励志</a></li>
+                <li><a href="#">历史</a></li>
+            </ul>
+        </nav>
+    </body>
+</html>

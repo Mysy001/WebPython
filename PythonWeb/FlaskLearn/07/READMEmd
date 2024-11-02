@@ -18,3 +18,6 @@ flask-script 扩展
     python manage.py db init
     python manage.py db migrate
     python manage.py db upgrade
+
+出现问题
+    https://www.ifrontend.net/2024/05/flask-script/
