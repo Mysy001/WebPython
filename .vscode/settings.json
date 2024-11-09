@@ -5,6 +5,7 @@
         "mrsoft",
         "pymysql",
         "sqlalchemy",
+        "Werkzeug",
         "wtforms"
     ],
     "python.analysis.extraPaths": [

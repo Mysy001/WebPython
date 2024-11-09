@@ -14,7 +14,7 @@ def login():
     if form.validate_on_submit():
         username = form.name.data
         password = form.password.data
-        if username== "andy" and password == "mrsoft":
+        if username== "bai" and password == "123456":
             return redirect(url_for('index'))
     return render_template('login.html',form=form)
 

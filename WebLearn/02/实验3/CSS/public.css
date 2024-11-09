@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,li,ol {
+    list-style: none;
+}
+
+a {
+    /* 去掉 <a> 标签的下划线*/
+    text-decoration: none;
+}
